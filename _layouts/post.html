@@ -8,6 +8,11 @@ layout: default
     </header>
 
     <div class="post-content">
+        {% if page.coverImage %}
+            <div class="post-cover-image">
+                <img src="{{ page.coverImage }}" alt="{{ page.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;">
+            </div>
+        {% endif %}
         {{ content }}
     </div>
 </article>

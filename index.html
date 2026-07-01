@@ -5,16 +5,30 @@ title: Home
 <div class="home">
     <h2 class="post-list-heading">Latest Posts</h2>
     
-    <ul class="post-list">
+    <div class="post-grid">
         {% for post in site.posts %}
-        <li>
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <h3>
-                <a class="post-link" href="{{ post.url | relative_url }}">
-                    {{ post.title }}
-                </a>
-            </h3>
-        </li>
+        <div class="post-card">
+            
+            {% if post.coverImage %}
+            <a href="{{ post.url | relative_url }}" class="post-card-image-link">
+                <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="post-card-image">
+            </a>
+            {% endif %}
+            
+            <div class="post-card-content">
+                <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <h3>
+                    <a class="post-link" href="{{ post.url | relative_url }}">
+                        {{ post.title }}
+                    </a>
+                </h3>
+                
+                <p class="post-excerpt">
+                    {{ post.excerpt | strip_html | truncatewords: 20 }}
+                </p>
+            </div>
+            
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </div>

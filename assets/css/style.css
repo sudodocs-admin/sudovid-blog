@@ -158,17 +158,33 @@ h1, h2, h3, h4 {
     padding-bottom: 10px;
 }
 
-/* --- Main Layout: 2/3 Featured, 1/3 Sub-posts --- */
-.newspaper-layout {
+/* --- Main Layout: 3 Columns (1/4 - 1/2 - 1/4) --- */
+.newspaper-layout-3col {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 30px;
 }
 
-/* --- The Hero Article --- */
+/* --- Column Borders and Padding --- */
+.side-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.left-column {
+    border-right: 1px solid #ccc;
+    padding-right: 30px;
+}
+
+.right-column {
+    border-left: 1px solid #ccc;
+    padding-left: 30px;
+}
+
+/* --- The Hero Article (Center) --- */
 .featured-post {
-    padding-right: 40px;
-    border-right: 1px solid #ccc; /* Classic newspaper column divider */
+    display: block;
 }
 
 .featured-image {
@@ -180,64 +196,76 @@ h1, h2, h3, h4 {
 
 .featured-content h2 {
     font-family: var(--font-body);
-    font-size: 3rem;
+    font-size: 2.8rem;
     line-height: 1.1;
     margin: 10px 0;
 }
 
-.featured-content h2 a {
-    color: #111;
-}
-
-.news-category {
-    font-weight: bold;
-    color: var(--brand-color);
-}
-
+.featured-content h2 a { color: #111; }
+.news-category { font-weight: bold; color: var(--brand-color); }
 .featured-content .post-excerpt {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.6;
     color: #333;
 }
 
-/* --- The Sub-Posts Column --- */
-.sub-posts-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Stack them vertically */
-    gap: 30px;
-}
-
+/* --- The Sub-Posts (Left & Right) --- */
 .sub-post {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Image on left, text on right */
-    gap: 15px;
+    display: flex;
+    flex-direction: column; /* Stacks image on top of text for narrow columns */
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
 }
 
+.sub-post:last-child {
+    border-bottom: none; 
+}
+
 .sub-post-image {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Square crop for thumbnails */
+    aspect-ratio: 16 / 9; /* Widescreen crop for thumbnails */
     object-fit: cover;
+    margin-bottom: 10px;
 }
 
-.sub-post h3 {
+.sub-post-text h3 {
     font-family: var(--font-body);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1.2;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
 }
 
-/* --- Responsive Design for Mobile --- */
-@media (max-width: 900px) {
-    .newspaper-layout {
-        grid-template-columns: 1fr; /* Stack everything on small screens */
+.sub-post-text h3 a { color: #111; }
+.sub-post-text .post-meta {
+    font-size: 13px;
+    margin: 0;
+    font-family: var(--font-ui);
+    color: var(--meta-color);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
+    .newspaper-layout-3col {
+        display: flex;
+        flex-direction: column; /* Stacks everything on mobile */
     }
-    .featured-post {
-        padding-right: 0;
-        border-right: none;
-        border-bottom: 3px solid #111;
-        padding-bottom: 40px;
-        margin-bottom: 40px;
+    
+    /* Forces the Center Column (Featured Post) to jump to the very top on phones */
+    .center-column {
+        order: -1; 
+        border-bottom: 2px solid #111;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .left-column, .right-column {
+        border: none;
+        padding: 0;
+    }
+    
+    .left-column {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
     }
 }

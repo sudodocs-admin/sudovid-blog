@@ -116,6 +116,22 @@ h1, h2, h3, h4 {
     color: #111;
 }
 
+/* --- Masthead Logo & Text Alignment --- */
+.masthead-link {
+    display: inline-flex;
+    align-items: center;      /* Perfectly centers the logo and text vertically */
+    justify-content: center;
+    gap: 15px;                /* Adds a nice 15px gap between the logo and the text */
+}
+
+.masthead-logo {
+    height: 1em;              /* The Magic Trick: Forces the image to be the exact height of the text */
+    width: auto;              /* Prevents the image from stretching or distorting */
+    object-fit: contain;
+    margin: 0;                /* Resets any default image margins */
+    border-radius: 0;
+}
+
 .newspaper-title a {
     color: #111;
 }

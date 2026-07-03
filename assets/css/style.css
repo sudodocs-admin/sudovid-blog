@@ -124,11 +124,11 @@ h1, h2, h3, h4 {
     padding-left: 20px;
     margin: 40px 0;
 }
-/* --- Newspaper Masthead --- */
+/* --- Newspaper Masthead (Full Screen) --- */
 .newspaper-home {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 100%; /* Removes the 1200px limit, letting it stretch edge-to-edge */
+    padding: 0 4vw;  /* Uses viewport width for padding so it always has breathing room */
+    box-sizing: border-box;
 }
 
 .newspaper-masthead {
@@ -244,28 +244,78 @@ h1, h2, h3, h4 {
 }
 
 /* --- Mobile Responsiveness --- */
+/* --- Adaptive Responsive Design --- */
+
+/* Tablet Landscape / Smaller Laptops (under 1200px) */
+@media (max-width: 1200px) {
+    .newspaper-layout-3col {
+        grid-template-columns: 1fr 1.5fr 1fr; /* Slightly narrows the center to balance */
+        gap: 20px;
+    }
+    .left-column { padding-right: 20px; }
+    .right-column { padding-left: 20px; }
+}
+
+/* Tablet Portrait (under 992px) -> Shifts to 2 Columns */
 @media (max-width: 992px) {
     .newspaper-layout-3col {
-        display: flex;
-        flex-direction: column; /* Stacks everything on mobile */
+        grid-template-columns: 1fr 1fr; /* Two equal columns for side posts */
     }
     
-    /* Forces the Center Column (Featured Post) to jump to the very top on phones */
     .center-column {
+        grid-column: span 2; /* Forces the Hero article to span across the top */
         order: -1; 
         border-bottom: 2px solid #111;
         padding-bottom: 30px;
         margin-bottom: 30px;
     }
     
-    .left-column, .right-column {
-        border: none;
-        padding: 0;
+    .left-column {
+        border-right: 1px solid #ccc;
+        padding-right: 20px;
+        border-bottom: none; /* Removes the bottom border from previous rule */
+    }
+    
+    .right-column {
+        border-left: none; /* Removes the left border so it flows nicely */
+        padding-left: 20px;
+    }
+}
+
+/* Mobile Phones (under 768px) -> Shifts to 1 Stacked Column */
+@media (max-width: 768px) {
+    .newspaper-home {
+        padding: 0 20px; /* Reduces edge padding for small screens */
+    }
+    
+    .newspaper-layout-3col {
+        grid-template-columns: 1fr; /* Stacks everything vertically */
+    }
+    
+    .center-column {
+        grid-column: span 1;
     }
     
     .left-column {
-        border-bottom: 1px solid #ccc;
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid #ccc; /* Adds divider between left and right column posts */
         padding-bottom: 30px;
         margin-bottom: 30px;
+    }
+    
+    .right-column {
+        padding-left: 0;
+    }
+    
+    /* Makes side-column images stack on top of text instead of side-by-side on tiny screens */
+    .sub-post {
+        display: flex;
+        flex-direction: column; 
+    }
+    
+    .sub-post-image {
+        aspect-ratio: 16 / 9; /* Cinematic crop for mobile readability */
+        margin-bottom: 15px;
     }
 }

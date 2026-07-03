@@ -2,33 +2,44 @@
 layout: default
 title: Home
 ---
-<div class="home">
-    <h2 class="post-list-heading">Latest Posts</h2>
+<div class="newspaper-home">
     
-    <div class="post-grid">
+    <header class="newspaper-masthead">
+        <h1 class="newspaper-title">The Sudovid Times</h1>
+        <div class="newspaper-date">{{ site.time | date: "%A, %B %d, %Y" }}</div>
+    </header>
+
+    <div class="newspaper-layout">
         {% for post in site.posts %}
-        <div class="post-card">
             
-            {% if post.coverImage %}
-            <a href="{{ post.url | relative_url }}" class="post-card-image-link">
-                <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="post-card-image">
-            </a>
+            {% if forloop.first %}
+                <article class="featured-post">
+                    {% if post.coverImage %}
+                        <a href="{{ post.url | relative_url }}">
+                            <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="featured-image">
+                        </a>
+                    {% endif %}
+                    <div class="featured-content">
+                        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                        <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }} | <span class="news-category">{{ post.categories | join: ", " | upcase }}</span></p>
+                        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 45 }}</p>
+                    </div>
+                </article>
+                
+                <div class="sub-posts-grid">
+            
+            {% else %}
+                <article class="sub-post">
+                    {% if post.coverImage %}
+                        <a href="{{ post.url | relative_url }}">
+                            <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="sub-post-image">
+                        </a>
+                    {% endif %}
+                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+                </article>
             {% endif %}
             
-            <div class="post-card-content">
-                <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-                <h3>
-                    <a class="post-link" href="{{ post.url | relative_url }}">
-                        {{ post.title }}
-                    </a>
-                </h3>
-                
-                <p class="post-excerpt">
-                    {{ post.excerpt | strip_html | truncatewords: 20 }}
-                </p>
-            </div>
-            
-        </div>
         {% endfor %}
-    </div>
+        </div> </div>
 </div>

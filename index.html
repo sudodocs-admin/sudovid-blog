@@ -7,7 +7,7 @@ title: Home
     <div class="newspaper-layout-3col">
         
         <aside class="side-column left-column">
-            {% for post in site.posts offset:1 limit:3 %}
+            {% for post in site.posts offset:1 limit:5 %}
                 <article class="sub-post">
                     {% if post.coverImage %}
                         <a href="{{ post.url | relative_url }}">
@@ -42,7 +42,7 @@ title: Home
         </main>
         
         <aside class="side-column right-column">
-            {% for post in site.posts offset:4 limit:3 %}
+            {% for post in site.posts offset:6 limit:5 %}
                 <article class="sub-post">
                     {% if post.coverImage %}
                         <a href="{{ post.url | relative_url }}">
@@ -62,7 +62,7 @@ title: Home
     <div class="newspaper-bottom-section">
         <h2 class="bottom-section-title">More Stories</h2>
         <div class="newspaper-footer-grid">
-            {% for post in site.posts offset:7 %}
+            {% for post in site.posts offset:11 %}
                 <article class="footer-post">
                     {% if post.coverImage %}
                         <a href="{{ post.url | relative_url }}">

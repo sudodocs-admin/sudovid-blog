@@ -1,8 +1,7 @@
 ---
 title: "Batman Vs Superman: Dawn of Justice (Ultimate Edition): (2016)"
 date: 2016-07-02
-categories: 
-  - "cinema"
+categories: [Comics, Action, Thriller]
 tags: 
   - "aquaman"
   - "batman-vs-superman"

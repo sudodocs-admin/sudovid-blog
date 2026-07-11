@@ -1,8 +1,7 @@
 ---
 title: "True Detective: (TV series 2014)"
 date: 2014-03-28
-categories: 
-  - "cinema"
+categories: [Suspense, Thriller]
 tags: 
   - "anthology"
   - "atheist"

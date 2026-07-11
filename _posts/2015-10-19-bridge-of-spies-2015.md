@@ -1,8 +1,7 @@
 ---
 title: "Bridge of Spies: (2015)"
 date: 2015-10-19
-categories: 
-  - "cinema"
+categories: [Suspense, Drama, Biography]
 tags: 
   - "2015"
   - "bridge-of-spies"

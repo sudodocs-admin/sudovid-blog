@@ -1,8 +1,7 @@
 ---
 title: "The Man Who Knew Infinity: (2015)"
 date: 2016-08-16
-categories: 
-  - "cinema"
+categories: [Drama, Biography]
 tags: 
   - "2015"
   - "albert-einstein"

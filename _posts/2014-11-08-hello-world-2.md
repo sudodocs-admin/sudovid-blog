@@ -1,8 +1,7 @@
 ---
 title: "Interstellar: (2014)"
 date: 2014-11-08
-categories: 
-  - "cinema"
+categories: [Sci-Fi, Thriller]
 tags: 
   - "2014"
   - "anne-hathway"

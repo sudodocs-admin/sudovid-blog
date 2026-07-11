@@ -1,8 +1,7 @@
 ---
 title: "Daredevil: (TV series Season 1 and 2)"
 date: 2016-03-26
-categories: 
-  - "cinema"
+categories: [Suspense, Thriller, Action, Sci-Fi, Comics]
 tags: 
   - "charlie-cox"
   - "daredevil"

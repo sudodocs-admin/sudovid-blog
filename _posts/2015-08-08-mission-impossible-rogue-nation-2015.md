@@ -1,8 +1,7 @@
 ---
 title: "Mission: Impossible - Rogue Nation: (2015)"
 date: 2015-08-08
-categories: 
-  - "cinema"
+categories: [Action, Thriller]
 tags: 
   - "bruce-gellar"
   - "christopher-mcquarrie"

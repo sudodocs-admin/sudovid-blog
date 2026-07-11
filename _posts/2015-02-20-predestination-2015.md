@@ -1,8 +1,7 @@
 ---
 title: "Predestination: (2015)"
 date: 2015-02-20
-categories: 
-  - "cinema"
+categories: [Suspense, Thriller, Sci-Fi]
 tags: 
   - "2015"
   - "back-to-the-future-2"

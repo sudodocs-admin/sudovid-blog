@@ -17,6 +17,11 @@
             </a>
         </h1>
     <div class="newspaper-date">{{ site.time | date: "%A, %B %d, %Y" }}</div>
+    <nav class="newspaper-categories">
+        {% for category in site.categories %}
+            <a href="{{ '/categories.html#' | append: category[0] | relative_url }}">{{ category[0] }}</a>
+        {% endfor %}
+    </nav>
     </header>
 
     <main class="page-content" aria-label="Content">

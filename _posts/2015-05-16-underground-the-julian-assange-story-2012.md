@@ -1,7 +1,7 @@
 ---
 title: "Underground - The Julian Assange Story: (2012)"
 date: 2015-05-16
-categories: 
+categories: [Drama, Thriller]
   - "cinema"
 tags: 
   - "afghan-war-logs"
